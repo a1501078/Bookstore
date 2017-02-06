@@ -1,20 +1,28 @@
 package com.maria.domain;
 
-public class Book {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Book {
+	 @Id
+	 @GeneratedValue(strategy=GenerationType.AUTO)
+	public Long id;
 	private String title;
 	private String author;
-	private String year;
+	private long year;
 	private String isbn;
-	private String price;
+	private double price;
 	
 	public Book() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Book(String title, String author, String year, String isbn,
-			String price) {
+	public Book(String title, String author, long year, String isbn,
+			Double price) {
 		super();
 		this.title = title;
 		this.author = author;
@@ -39,12 +47,13 @@ public class Book {
 		this.author = author;
 	}
 
-	public String getYear() {
+
+	public long getYear() {
 		return year;
 	}
 
-	public void setYear(String year) {
-		this.year = year;
+	public long setYear(long year) {
+		return this.year;
 	}
 
 	public String getIsbn() {
@@ -55,11 +64,11 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public String getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
