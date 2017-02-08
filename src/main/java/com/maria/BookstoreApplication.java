@@ -9,8 +9,9 @@ import org.springframework.context.annotation.Bean;
 
 import com.maria.domain.Book;
 import com.maria.domain.BookRepository;
+import com.maria.domain.User;
+import com.maria.domain.UserRepository;
 
-//import com.maria.domain.BookstoreApplication;
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -23,11 +24,18 @@ public class BookstoreApplication {
 
 	
 	@Bean
-	public CommandLineRunner studentDemo(BookRepository repository) {
+	public CommandLineRunner studentDemo(BookRepository repository, UserRepository userrepository) {
 		return (args) -> {
 			log.info("save a couple of books");
 			repository.save(new Book("A Farewell to Arms", "Ernest Hemingway", 1929, "123123123-21", 13.00));
 			repository.save(new Book("Animal Farm", "George Orwell", 1945, "124124124-31", 12.00));	
+			
+			
+			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+			userrepository.save(user1);
+			userrepository.save(user2);
+			
 			
 			log.info("fetch all books");
 			for (Book book : repository.findAll()) {
