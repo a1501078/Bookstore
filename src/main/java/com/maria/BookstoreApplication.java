@@ -33,7 +33,7 @@ public class BookstoreApplication {
 			
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "user1@user.com", "USER");
 			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "user2@user.com", "ADMIN");
-			User user3 = new User("superuser", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "user3@user.com", "USER");
+			User user3 = new User("superuser", "$2a$04$DcJNFiRCdGYhR8c51E.A0.3M.vwGVDwQgL3goq8FoR.renz90QT0e", "user3@user.com", "USER");
 			userrepository.save(user1);
 			userrepository.save(user2);
 			userrepository.save(user3);

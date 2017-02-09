@@ -22,10 +22,11 @@ public class User {
     
     @Column(name = "email")
     private String email;
+    
+    @Column(name = "role", nullable = false)
+    private String role;
 
-    public User(String email) {
-		super();
-		this.email = email;
+    public User() {
 	}
 
 	public String getEmail() {
@@ -36,11 +37,6 @@ public class User {
 		this.email = email;
 	}
 
-	@Column(name = "role", nullable = false)
-    private String role;
-    
-    public User() {
-    }
 
 	public User(String username, String passwordHash,  String email, String role) {
 		super();
@@ -80,5 +76,13 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", passwordHash="
+				+ passwordHash + ", email=" + email + ", role=" + role + "]";
+	}
+	
+	
 
 }
