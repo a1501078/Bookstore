@@ -6,7 +6,7 @@
 <title>Login</title>
 </head>
 <body>
-	<div th:if="@{/login}">
+	<div th:if="${param.error}">
             Invalid username and password.
     </div>
     <div th:if="${param.logout}">

@@ -31,11 +31,12 @@ public class BookstoreApplication {
 			repository.save(new Book("Animal Farm", "George Orwell", 1945, "124124124-31", 12.00));	
 			
 			
-			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
-			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "user1@user.com", "USER");
+			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "user2@user.com", "ADMIN");
+			User user3 = new User("superuser", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "user3@user.com", "USER");
 			userrepository.save(user1);
 			userrepository.save(user2);
-			
+			userrepository.save(user3);
 			
 			log.info("fetch all books");
 			for (Book book : repository.findAll()) {
