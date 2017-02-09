@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.maria.domain.Book;
 import com.maria.domain.BookRepository;
@@ -46,6 +47,17 @@ public class BookController {
         model.addAttribute("books", repository.findAll());
         return "booklist";
     } 
+	//REST all books
+	@RequestMapping(value="books", method=RequestMethod.GET)
+	public @ResponseBody List<Book> bookListRest() {
+		return (List<Book>) repository.findAll();
+	}
+	
+	//REST book by id
+	@RequestMapping(value="book/{id}", method=RequestMethod.GET)
+	public @ResponseBody Book findBookRest(@PathVariable("id") Long bookId) {
+		return repository.findOne(bookId);
+	}
 	
 	  @RequestMapping(value = "/add")
 	    public String addStudent(Model model){
